@@ -1,0 +1,80 @@
+
+<div class="slds-table_edit_container">
+  <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+    <thead>
+      <tr class="slds-line-height_reset">
+        <th scope="col">
+          <div class="slds-truncate">Assigned To</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate">Status</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate">Due Date</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate">Priority</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate">Description</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate">Actions</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <!-- Edit Mode -->
+        <ng-container *ngIf="editingTask && editingTask.taskId === task.taskId; else displayMode">
+          <td><input [(ngModel)]="editingTask.assignedTo" class="slds-input" placeholder="Assigned To"></td>
+          <td>
+            <select [(ngModel)]="editingTask.status" class="slds-input">
+              <option value="Not Started">Not Started</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </td>
+          <td><input [(ngModel)]="editingTask.dueDate" type="date" class="slds-input" placeholder="Due Date"></td>
+          <!-- Priority Dropdown -->
+       <td>
+         <select [(ngModel)]="editingTask.priority" class="slds-input">
+            <option value="Low">Low</option>
+            <option value="Normal">Normal</option>
+            <option value="High">High</option>
+          </select>
+      </td>
+
+          <td><input [(ngModel)]="editingTask.description" class="slds-input" placeholder="Description"></td>
+          <td>
+            <button class="slds-button slds-button_brand" (click)="saveTask(editingTask)">Save</button>
+            <button class="slds-button slds-button_neutral" (click)="cancelEdit()">Cancel</button>
+          </td>
+        </ng-container>
+
+        <!-- Display Mode -->
+        <ng-template #displayMode>
+          <td>
+            <div class="slds-truncate">{{ task.assignedTo }}</div>
+          </td>
+          <td>
+            <div class="slds-truncate">{{ task.status }}</div>
+          </td>
+          <td>
+            <div class="slds-truncate">{{ task.dueDate | date }}</div>
+          </td>
+          <td>
+            <div class="slds-truncate">{{ task.priority }}</div>
+          </td>
+          <td>
+            <div class="slds-truncate">{{ task.description }}</div>
+          </td>
+          <td>
+            <button class="slds-button slds-button_neutral" (click)="editTask(task)">Edit</button>
+            <button class="slds-button slds-button_destructive" (click)="deleteTask(task.taskId)">Delete</button>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>

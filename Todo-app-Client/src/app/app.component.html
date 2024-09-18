@@ -1,0 +1,61 @@
+
+<!-- Navbar container -->
+<div class="slds-context-bar custom-navbar">
+  <div class="slds-context-bar__primary">
+    <!-- Logo -->
+    <div class="slds-context-bar__item slds-context-bar__item--divider-right">
+      <div class="slds-context-bar__icon-action">
+        <!-- Task Icon -->
+        <button class="slds-button slds-icon-waffle_container slds-context-bar__button">
+          <span class="slds-icon-waffle">
+            <span class="slds-r1"></span>
+            <span class="slds-r2"></span>
+            <span class="slds-r3"></span>
+            <span class="slds-r4"></span>
+            <span class="slds-r5"></span>
+            <span class="slds-r6"></span>
+            <span class="slds-r7"></span>
+            <span class="slds-r8"></span>
+            <span class="slds-r9"></span>
+          </span>
+          <span class="slds-assistive-text">Tasks Icon</span>
+        </button>
+      </div>
+      <span class="slds-context-bar__label-action slds-context-bar__app-name">
+        AllTasks
+      </span>
+    </div>
+  </div>
+
+  <div class="slds-context-bar__secondary navbar-actions">
+    <!-- Buttons on the left side -->
+    <button (click)="showTaskForm = true"  class="slds-button slds-button_neutral">New Task</button>
+    <button (click)="refreshTaskList()" class="slds-button slds-button_outline-brand">Refresh</button>
+
+    <!-- Search Box (40% width) -->
+    <div class="slds-form-element custom-search-box">
+      <div class="slds-form-element__control">
+        <div class="slds-input-has-icon slds-input-has-icon_left-right">
+          <input type="text" id="search" class="slds-input" placeholder="Search" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="slds-p-around_medium">
+  <!-- Placeholder for your task list content -->
+  <p>Task List will appear here.</p>
+</div>
+
+
+
+<!-- Main content -->
+<div class="slds-p-around_medium">
+  <app-task-list [tasks]="tasks"></app-task-list>
+</div>
+
+
+<!-- New Task Form -->
+<app-task-form *ngIf="showTaskForm" (taskAdded)="onTaskAdded($event)"></app-task-form>

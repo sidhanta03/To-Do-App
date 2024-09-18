@@ -1,0 +1,57 @@
+/* Add border and padding to the form */
+.custom-form {
+    border: 1px solid #d8dde6;  /* Light gray border */
+    padding: 1.5rem;
+    border-radius: 0.5rem;  /* Rounded corners */
+    background-color: #f4f6f9;  /* Light background */
+  }
+  
+  /* Add margin and custom styling to buttons */
+  .form-buttons {
+    margin-top: 1rem;
+    display: flex;
+  }
+  
+  /* Save button styling */
+  .custom-save-btn {
+    background-color: #1589ee;  /* Custom blue color */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Hover effect for save button */
+  .custom-save-btn:hover {
+    background-color: #006bb4;
+  }
+  
+  /* Close button styling */
+  .custom-close-btn {
+    color: #555555;
+    background-color: #e0e0e0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  /* Hover effect for close button */
+  .custom-close-btn:hover {
+    background-color: #cccccc;
+  }
+  
+  /* Input styling */
+  .slds-input, .slds-select {
+    border: 1px solid #cccccc;
+    border-radius: 0.25rem;
+  }
+  
+  /* Form heading */
+  h2.slds-text-heading_medium {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    color: #333333;
+  }
+  
